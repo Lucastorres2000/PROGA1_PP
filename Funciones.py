@@ -2,16 +2,17 @@ from Validaciones import *
 #-------------------------------------------------------------------------------------------
 def pedir_int_rango(mensaje, min , max ):
     
-    '''
-        Pide un numero al usuario.
-        Itera con un maximo de 3 intentos pidiendo un numero 
+    ''' Funcion que se encarga de pedir un numero al usuario. 
         valida solo numeros y entre un rango solicitado 
     
-
-    parametro : Mensaje , Mensaje de interfaz al usuario
-    parametro : min , Indica el rango minimo solicitado 
-    parametro : max , Indica el rango maximo solicitado 
-    retorno   : Si es correcto RETORNA el valor, caso contrario ERROR
+        Parametros : 
+                    Mensaje(str) :  Mensaje de interfaz al usuario
+                    min (int) : Indica el rango minimo solicitado 
+                    max (int) : Indica el rango maximo solicitado 
+        
+        Retorno : 
+                   retorno (int) Si es correcto RETORNA el valor, caso contrario ERROR
+    retorno   : 
     
     '''
 
@@ -41,10 +42,12 @@ def pedir_int_rango(mensaje, min , max ):
 #-------------------------------------------------------------------------------------------
 
 def pedir_genero () :
-    '''
-        Solicita al usuario que ingrese el genero  ( F, M , X ) .
+    '''Funcion que se encarga de solicitar al usuario que ingrese el genero  ( F, M , X ) .
         valida que el genero ingresado se correcto
         si es correcto lo retorna . 
+        
+        Retorno : 
+                    retorno (str) : Si es correcto retorna el genero caso contrario retorna False 
 
     '''
     retorno = False
@@ -67,15 +70,18 @@ def pedir_genero () :
 
 def pedir_float_rango(mensaje:str ,num_min:int ,num_max:int ) -> float :
     
-    '''
-        Pide un numero al usuario.
+    '''Funcion que se encarga de Pedir un numero al usuario.
         Itera con un maximo de 3 intentos pidiendo un numero 
         valida solo numeros y entre un rango solicitado 
-        Si es correcto RETORNA el valor, caso contrario ERROR
+        
 
-        parametro : Mensaje , Mensaje de interfaz al usuario
-        parametro : min , Indica el rango minimo solicitado 
-        parametro : max , Indica el rango maximo solicitado 
+        Parametros : 
+                    Mensaje(str) :  Mensaje de interfaz al usuario
+                    min (int) : Indica el rango minimo solicitado 
+                    max (int) : Indica el rango maximo solicitado 
+        
+        Retorno : 
+                   retorno (int) : Si es correcto RETORNA el valor, caso contrario ERROR
 
     '''    
     retorno = False
@@ -100,13 +106,15 @@ def pedir_float_rango(mensaje:str ,num_min:int ,num_max:int ) -> float :
 #-------------------------------------------------------------------------------------------
 
 def pedir_str(mensaje):
-    '''
-        Pide un strg o char al usuario 
+    '''Funcion que se encarga de pedir un strg o char al usuario 
         Itera con un maximo de 3 intentos 
         Valida solo letras 
     
-        parametro : Mensaje , Mensaje de interfaz al usuario
-        retorno   : Si es correcto retorna el str, caso contrario ERROR
+        Parametro : 
+                    Mensaje(str): Mensaje de interfaz al usuario
+        Retorno :
+                retorno (str) Si es correcto retorna el str, caso contrario False 
+        retorno   : 
     '''
     
     retorno = False
@@ -131,17 +139,18 @@ def mostrar_alumno(legajo:int,
                    nota_1:float, 
                    nota_2:float) :
 
-    '''
-     Recibe los datos de un alumno y lo muestra de forma ordenado 
+    '''Funcion que se encarga de Recibir los datos de un alumno y lo muestra de forma ordenado 
 
-     parametro : legajo : int, contiene el numero de legajo del alumno 
-     parametro : apellidos_nombres : str, contiene el apellido y nombre del alumno
-     parametro : genero:str,  contiene el genero del alumno 
-     parametro : nota_1:float, contiene la nota del primer parcial de alumno 
-     parametro : nota_2:float, contiene la nota del segundo parcial de la alumno 
+        Paramentros :
+                    legajo (int) : contiene el numero de legajo del alumno 
+                    apellidos_nombres (str) : contiene el apellido y nombre del alumno
+                    genero (str) :  contiene el genero del alumno 
+                    nota_1 (float) : contiene la nota del primer parcial de alumno 
+                    nota_2 (float) : contiene la nota del segundo parcial de la alumno 
+                    
      
     '''
-    print(f"{legajo:<10}{apellidos_nombres:<25}{genero:<10}{nota_1:<10}{nota_2:<10}")
+    print(f"{legajo:<10}{" | "}{apellidos_nombres:<25}{ " | " }{genero:<10}{" | "}{nota_1:<10}{" | "}{nota_2:<10}")
 
 #-------------------------------------------------------------------------------------------
 
@@ -151,16 +160,17 @@ def mostar_alumnos(lista_legajos:list,
                    lista_notas_1:list, 
                    lista_notas_2:list,
                    ) :
-    '''
-        recorre la lista de legajos asociados a cada alumno 
-        cada vez que recorre llama a la funcion encargada de mostar un alumno y le pasa el valor 
+    ''' Funcion que se encarga de recorrer la lista de legajos asociados a cada alumno y mostrarlos.
+        Cada vez que recorre llama a la funcion encargada de mostar un alumno y le pasa el alumno
 
-        parametro : lista_legajos : list , contiene una lista de legajos del alumno
-        parametro : lista_apellidos_nombres : list , contiene una lista con appelidos y nombres del alumno 
-        parametro : lista_generos : list , contiene una lista de generos de cada alumno
-        parametro : lista_notas_1 : list , contiene una lista de notas del primer parcial 
-        parametro : lista_notas_2 : list , contiene una lista de notas del segundo parcial 
+        Parametros :        
+                    lista_legajos (list) , contiene una lista de legajos del alumno
+                    lista_apellidos_nombres (list) , contiene una lista con appelidos y nombres del alumno 
+                    lista_generos  (list) , contiene una lista de generos de cada alumno
+                    lista_notas_1  (list) , contiene una lista de notas del primer parcial 
+                    lista_notas_2  (list) , contiene una lista de notas del segundo parcial 
     '''
+    titulos()
     for i in range(len(lista_legajos)) :
         mostrar_alumno(lista_legajos[i], 
                    lista_apellidos_nombres [i], 
@@ -178,20 +188,21 @@ def mostrar_alumno_con_promedio(legajo:int,
                    nota_2:float,
                    promedio:float) :
                        
-    '''
-     Recibe los datos de un alumno y lo muestra de forma ordenado 
+  
+    '''Funcion que se encarga de Recibir los datos de un alumno y lo muestra de forma ordenado 
 
-     parametro : legajo : int, contiene el numero de legajo del alumno 
-     parametro : apellidos_nombres : str, contiene el apellido y nombre del alumno
-     parametro : genero:str,  contiene el genero del alumno 
-     parametro : nota_1:float, contiene la nota del primer parcial de alumno 
-     parametro : nota_2:float, contiene la nota del segundo parcial de la alumno 
-     parametro : promedio: float , contiene el promedio del alumno 
+        Paramentros :
+                    legajo (int) : contiene el numero de legajo del alumno 
+                    apellidos_nombres (str) : contiene el apellido y nombre del alumno
+                    genero (str) :  contiene el genero del alumno 
+                    nota_1 (float) : contiene la nota del primer parcial de alumno 
+                    nota_2 (float) : contiene la nota del segundo parcial de la alumno 
+                    promedio (float) : contiene el promedio del alumno 
      
-    '''
-    print(f"{legajo:<10}{apellidos_nombres:<25}{genero:<10}{nota_1:<10}{nota_2:<10}{promedio:<10}")
+    ''' 
+    print(f"{legajo:<10}{" | "}{apellidos_nombres:<25}{" | "}{genero:<10}{" | "}{nota_1:<10}{" | "}{nota_2:<10}{" | "}{promedio:<10}")
 
-#-------------------------------------------------------------------------------------------
+
 
 def mostrar_alumnos_con_promedios(lista_legajos:list, 
                    lista_apellidos_nombres : list, 
@@ -200,18 +211,19 @@ def mostrar_alumnos_con_promedios(lista_legajos:list,
                    lista_notas_2:list,
                    lista_promedios : list ) :
                        
-    '''
-        recorre la lista de legajos asociados a cada alumno 
-        cada vez que recorre llama a la funcion encargada de mostar un alumno y le pasa el valor 
+    '''Funcion que se encarga de recorrer la lista de legajos asociados a cada alumno y mostrarlos.
+        Cada vez que recorre llama a la funcion encargada de mostar un alumno y le pasa el alumno
 
-        parametro : lista_legajos : list , contiene una lista de legajos del alumno
-        parametro : lista_apellidos_nombres : list , contiene una lista con appelidos y nombres del alumno 
-        parametro : lista_generos : list , contiene una lista de generos de cada alumno
-        parametro : lista_notas_1 : list , contiene una lista de notas del primer parcial 
-        parametro : lista_notas_2 : list , contiene una lista de notas del segundo parcial 
-        parametro : lista_promedios : list , contiene una lista de promedios 
+        Parametros :        
+                    lista_legajos (list) , contiene una lista de legajos del alumno
+                    lista_apellidos_nombres (list) , contiene una lista con appelidos y nombres del alumno 
+                    lista_generos  (list) , contiene una lista de generos de cada alumno
+                    lista_notas_1  (list) , contiene una lista de notas del primer parcial 
+                    lista_notas_2  (list) , contiene una lista de notas del segundo parcial
+                    lista_promedios (list) , contiene una lista de promedios 
+
     '''
-    
+    titulos_con_promedios()
     for i in range(len(lista_legajos)) :
         mostrar_alumno_con_promedio(lista_legajos[i], 
                    lista_apellidos_nombres [i], 
@@ -223,13 +235,16 @@ def mostrar_alumnos_con_promedios(lista_legajos:list,
 
 #-------------------------------------------------------------------------------------------
         
-def agregar_dato(lista : list, dato : any ):
+def agregar_dato(lista : list, dato : any ) -> list :
     
-    '''
-        agrega un dato dentro de la lista 
+    '''Funcion que se encarga de agregar un dato dentro de la lista 
         
-        parametro : lista : list , 
-        parametro : dato : any 
+        Parametros:
+                    lista (list) : Lista a modificar 
+                    dato (any) : dato a almacenar en lista 
+                    
+        Retornos : 
+                    lista (list) : Devuelve la lista con el dato agregado 
     '''
 
     lista = lista + [dato]
@@ -239,6 +254,16 @@ def agregar_dato(lista : list, dato : any ):
 #-------------------------------------------------------------------------------------------
 
 def sumar (numero_1 : float  , numero_2 : float  ) -> float : 
+    '''Funcion que se encarga de sumar dos variables 
+        
+        parametro : 
+                    numero_1 (float) : Primer número 
+                    numero_1 (float) : Segundo número 
+                    
+        Retorno : 
+                    total (float) : Retorna el total de la suma de ambos numeros 
+    
+    '''
     
     total = numero_1 + numero_2
     
@@ -246,18 +271,21 @@ def sumar (numero_1 : float  , numero_2 : float  ) -> float :
     
 def calcular_promedios (lista_notas_1,lista_notas_2) :
     
-    '''
-        Suma la nota del primer parcial + el segundo parcial 
-        calcula promedio y lo agrega a una nueva lista de promedios, luego la retorna 
+    '''Funcion que se encarga de calcular un promedio de dos notas.
+        Suma ambas notas y luego las divide por 2 para sacar el promedio 
         
-        parametro : lista_notas_1 : list 
-        parametro : lista_notas_2 : list 
+        Parametros : 
+                    lista_notas_1 (list) : Primer nota a sumar
+                    lista_notas_2 (list) : Segunda nota a sumar 
+                    
+        Retornos : 
+                    aux_lista_promedios (list) : Retorna una nueva lista que contiene los promedios de cada alumno 
     '''
     
     aux_lista_promedios = []
     
     for i in range(len(lista_notas_1)):
-        aux_suma = sumar(lista_notas_1,lista_notas_2)
+        aux_suma = sumar(lista_notas_1[i],lista_notas_2[i])
         aux_total = aux_suma / 2
         aux_lista_promedios = agregar_dato(aux_lista_promedios, aux_total)
     
@@ -267,10 +295,13 @@ def calcular_promedios (lista_notas_1,lista_notas_2) :
 
 def calcular_mayor_promedio(lista_promedios : list ) : 
     
-    '''
-        recorre una lista de promedio , buscar el mayor y lo retorna 
+    '''Funcion que se encarga de  recorrer una lista de promedios , buscar el mayor y retornarlo
         
-        parametro : lista_promedios : list 
+        Parametro : 
+                    lista_promedios (list) : Lista de promedios de alumnos 
+                    
+        Retornos :
+                    aux_mayor(float) : Retorna el mayor promedio econtrado 
     '''
     
     aux_mayor = 0 
@@ -413,6 +444,18 @@ def buscar_y_mostrar(   lista_legajos : list,
                    lista_notas_primer_parcial[i], 
                    lista_notas_segundo_parcial[i],
                    lista_promedios[i])
+            
+            
+def titulos_con_promedios() :
+    
+    print(f"{'Legajo ':<10}{" | "}{' Apellidos y nombres':<25}{" | "}{' Genero':<10}{" | "}{' Nota_1':<10}{" | "}{' Nota_2':<10}{' Promedio':<10}")
+    print("#----------------------------------------------------------------------------------------#")
+    
+def titulos () :
+    
+    print(f"{'Legajo ':<10}{" | "}{' Apellidos y nombres':<25}{" | "}{' Genero':<10}{" | "}{' Nota_1':<10}{" | "}{' Nota_2':<10}")
+    print("#----------------------------------------------------------------------------------------#")
+#-------------------------------------------------------------------------------------------)
             
     
    
