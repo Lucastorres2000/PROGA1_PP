@@ -131,7 +131,7 @@ def mostrar_alumno(legajo:int,
                    nota_1:float, 
                    nota_2:float) :
 
-'''
+    '''
      Recibe los datos de un alumno y lo muestra de forma ordenado 
 
      parametro : legajo : int, contiene el numero de legajo del alumno 
@@ -139,7 +139,8 @@ def mostrar_alumno(legajo:int,
      parametro : genero:str,  contiene el genero del alumno 
      parametro : nota_1:float, contiene la nota del primer parcial de alumno 
      parametro : nota_2:float, contiene la nota del segundo parcial de la alumno 
-'''
+     
+    '''
     print(f"{legajo:<10}{apellidos_nombres:<25}{genero:<10}{nota_1:<10}{nota_2:<10}")
 
 #-------------------------------------------------------------------------------------------
@@ -176,6 +177,18 @@ def mostrar_alumno_con_promedio(legajo:int,
                    nota_1:float, 
                    nota_2:float,
                    promedio:float) :
+                       
+    '''
+     Recibe los datos de un alumno y lo muestra de forma ordenado 
+
+     parametro : legajo : int, contiene el numero de legajo del alumno 
+     parametro : apellidos_nombres : str, contiene el apellido y nombre del alumno
+     parametro : genero:str,  contiene el genero del alumno 
+     parametro : nota_1:float, contiene la nota del primer parcial de alumno 
+     parametro : nota_2:float, contiene la nota del segundo parcial de la alumno 
+     parametro : promedio: float , contiene el promedio del alumno 
+     
+    '''
     print(f"{legajo:<10}{apellidos_nombres:<25}{genero:<10}{nota_1:<10}{nota_2:<10}{promedio:<10}")
 
 #-------------------------------------------------------------------------------------------
@@ -186,6 +199,18 @@ def mostrar_alumnos_con_promedios(lista_legajos:list,
                    lista_notas_1:list, 
                    lista_notas_2:list,
                    lista_promedios : list ) :
+                       
+    '''
+        recorre la lista de legajos asociados a cada alumno 
+        cada vez que recorre llama a la funcion encargada de mostar un alumno y le pasa el valor 
+
+        parametro : lista_legajos : list , contiene una lista de legajos del alumno
+        parametro : lista_apellidos_nombres : list , contiene una lista con appelidos y nombres del alumno 
+        parametro : lista_generos : list , contiene una lista de generos de cada alumno
+        parametro : lista_notas_1 : list , contiene una lista de notas del primer parcial 
+        parametro : lista_notas_2 : list , contiene una lista de notas del segundo parcial 
+        parametro : lista_promedios : list , contiene una lista de promedios 
+    '''
     
     for i in range(len(lista_legajos)) :
         mostrar_alumno_con_promedio(lista_legajos[i], 
@@ -198,7 +223,14 @@ def mostrar_alumnos_con_promedios(lista_legajos:list,
 
 #-------------------------------------------------------------------------------------------
         
-def agregar_dato(lista:list, dato:str):
+def agregar_dato(lista : list, dato : any ):
+    
+    '''
+        agrega un dato dentro de la lista 
+        
+        parametro : lista : list , 
+        parametro : dato : any 
+    '''
 
     lista = lista + [dato]
 
@@ -206,12 +238,26 @@ def agregar_dato(lista:list, dato:str):
 
 #-------------------------------------------------------------------------------------------
 
+def sumar (numero_1 : float  , numero_2 : float  ) -> float : 
+    
+    total = numero_1 + numero_2
+    
+    return total 
+    
 def calcular_promedios (lista_notas_1,lista_notas_2) :
+    
+    '''
+        Suma la nota del primer parcial + el segundo parcial 
+        calcula promedio y lo agrega a una nueva lista de promedios, luego la retorna 
+        
+        parametro : lista_notas_1 : list 
+        parametro : lista_notas_2 : list 
+    '''
     
     aux_lista_promedios = []
     
     for i in range(len(lista_notas_1)):
-        aux_suma = lista_notas_1[i] + lista_notas_2[i]
+        aux_suma = sumar(lista_notas_1,lista_notas_2)
         aux_total = aux_suma / 2
         aux_lista_promedios = agregar_dato(aux_lista_promedios, aux_total)
     
@@ -220,6 +266,12 @@ def calcular_promedios (lista_notas_1,lista_notas_2) :
 #-------------------------------------------------------------------------------------------
 
 def calcular_mayor_promedio(lista_promedios : list ) : 
+    
+    '''
+        recorre una lista de promedio , buscar el mayor y lo retorna 
+        
+        parametro : lista_promedios : list 
+    '''
     
     aux_mayor = 0 
     
@@ -356,4 +408,4 @@ def buscar_y_mostrar(   lista_legajos : list,
 
                  
             
-                        
+                   
