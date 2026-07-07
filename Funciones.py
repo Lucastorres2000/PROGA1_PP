@@ -373,9 +373,9 @@ def pedir_legajo (lista_legajos : list ) :
     return retorno 
     
 #-------------------------------------------------------------------------------------------
-      
-def validar_legajo (lista_legajos : list , legajo_a_buscar : int) : 
     
+def validar_legajo (lista_legajos : list , legajo_a_buscar : int) : 
+
     for legajo in lista_legajos : 
         if legajo == legajo_a_buscar : 
             return True
@@ -391,7 +391,20 @@ def buscar_y_mostrar(   lista_legajos : list,
                         lista_notas_segundo_parcial : list,
                         lista_promedios : list, 
                         item : int ) :
-    
+
+    '''
+        Recibe un dato , recorre  y lo busca dentro de la lista 
+        si lo encuentra muestra todos los datos del alumno
+
+        parametro : lista_legajos : list , contiene una lista de legajos del alumno
+        parametro : lista_apellidos_nombres : list , contiene una lista con appelidos y nombres del alumno 
+        parametro : lista_generos : list , contiene una lista de generos de cada alumno
+        parametro : lista_notas_1 : list , contiene una lista de notas del primer parcial 
+        parametro : lista_notas_2 : list , contiene una lista de notas del segundo parcial 
+        parametro : lista_promedios : list , contiene una lista de promedios
+        parametro : item : int , contiene el dato a buscar 
+        
+    '''
     for i in range(len(lista_legajos)):
          if lista_legajos[i] == item :
             mostrar_alumno_con_promedio(lista_legajos[i], 
