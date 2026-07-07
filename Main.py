@@ -15,15 +15,15 @@ validar_carga = False
 validar_calculo_promedios = False 
 
 while salir_menu == False : 
-    print("#----------------------------------------------------------#")
-    print("#---- Cargar datos             (1)--)")
-    print("#---- Mostrar datos            (2)--)")
-    print("#---- Calcular promedio        (3)--)")
-    print("#---- Ordenar y mostrar        (4)--)")
-    print("#---- Mostrar mayor promedio   (5)--)")
-    print("#---- SUBIR DATOS              (9)--)")
-    print("#---- Salir                    (10)--)")
-    print("#----------------------------------------------------------#")
+    print("#----------------------------------------------------------------------------------------#")
+    print("#---- Cargar datos                      (1)--)")
+    print("#---- Mostrar datos                     (2)--)")
+    print("#---- Calcular promedio                 (3)--)")
+    print("#---- Ordenar y mostrar por promedio    (4)--)")
+    print("#---- Mostrar mayor promedio            (5)--)")
+    print("#---- SUBIR DATOS                       (9)--)")
+    print("#---- Salir                             (10)--)")
+    print("#----------------------------------------------------------------------------------------#")
     opcion = pedir_int_rango("Ingrese opcion ",0 ,13 )
     
     match opcion :
@@ -49,8 +49,8 @@ while salir_menu == False :
                 aux_carga = pedir_float_rango("Ingrese nota segundo parcial : ",1,10)                                   
                 lista_notas_segundo_parcial = agregar_dato(lista_notas_segundo_parcial, aux_carga)
                 
-                print("#------ Seguir cargando ( 1 )--) ")
-                print("#------ Salir ( 2 )--) ")
+                print("#------ Seguir cargando ( 1 )--)  ")
+                print("#------ Salir           ( 2 )--)  ")
                 
                 opcion = pedir_int_rango("Ingrese opcion ",0 ,2 )
                 validar_carga = True
@@ -70,9 +70,7 @@ while salir_menu == False :
                     lista_notas_segundo_parcial)
             else :
                 print("#-------- PRIMERO DE CARGAR UN ALUMNO -------#")
-                            
-            
-            
+                               
         case 3 :
             if validar_carga == True : 
                 lista_promedios = calcular_promedios (lista_notas_primer_parcial,lista_notas_segundo_parcial)
@@ -86,13 +84,19 @@ while salir_menu == False :
             if validar_carga == True :
                 if validar_calculo_promedios == True :
                     
-                    ordenar_por_promedio(lista_promedios,lista_legajos,lista_apellidos_nombres,lista_generos,lista_notas_primer_parcial,lista_notas_segundo_parcial, "DESC" )
-                    mostrar_alumnos_con_promedios(lista_legajos, 
-                    lista_apellidos_nombres, 
-                    lista_generos, 
-                    lista_notas_primer_parcial, 
-                    lista_notas_segundo_parcial,
-                    lista_promedios)
+                    ordenar_por_promedio(lista_promedios,
+                                         lista_legajos,
+                                         lista_apellidos_nombres,
+                                         lista_generos,lista_notas_primer_parcial,
+                                         lista_notas_segundo_parcial,
+                                         "DESC" )
+                    
+                    mostrar_alumnos_con_promedios(  lista_legajos, 
+                                                    lista_apellidos_nombres, 
+                                                    lista_generos, 
+                                                    lista_notas_primer_parcial, 
+                                                    lista_notas_segundo_parcial,
+                                                    lista_promedios)
                 else : 
                     print ("#-------- PRIMERO DE CALCULAR PROMEDIO --------# ")
             else :
@@ -132,14 +136,14 @@ while salir_menu == False :
         
         case 7 :
             pass
-        
-       
+            
         case 9:
+            
             lista_legajos = [1001,1002,1003,1004,1005]
             lista_apellidos_nombres = ["Torres Lucas ","Estevez Santino ","Garrido cecilia","Auad Liliana","Fernandez Micaela"]
-            lista_generos = ["x","x","x","x","x"]
-            lista_notas_primer_parcial = [2,10,3,5,10]
-            lista_notas_segundo_parcial = [9,10,3,1,10]
+            lista_generos = ["M","M","F","F","F"]
+            lista_notas_primer_parcial = [2.0,10.0,3.0,5.0,10.0]
+            lista_notas_segundo_parcial =[9.0,10.0,3.0,2.0,10.0]
             validar_carga = True 
             
             print("Datos cargados con exito !! ")
