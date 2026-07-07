@@ -137,7 +137,7 @@ while salir_menu == False :
         case 9:
             lista_legajos = [1001,1002,1003,1004,1005]
             lista_apellidos_nombres = ["Torres Lucas ","Estevez Santino ","Garrido cecilia","Auad Liliana","Fernandez Micaela"]
-            lista_generos = ["x","x","x","x","x"]
+            lista_generos = ["M","M","F","F","F"]
             lista_notas_primer_parcial = [2,10,3,5,10]
             lista_notas_segundo_parcial = [9,10,3,1,10]
             validar_carga = True 
