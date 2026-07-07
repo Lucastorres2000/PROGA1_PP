@@ -21,8 +21,9 @@ while salir_menu == False :
     print("#---- Calcular promedio                 (3)--)")
     print("#---- Ordenar y mostrar por promedio    (4)--)")
     print("#---- Mostrar mayor promedio            (5)--)")
-    print("#---- SUBIR DATOS                       (9)--)")
-    print("#---- Salir                             (10)--)")
+    print("#---- Buscar por legajo                 (6)--)")
+    print("#---- SUBIR DATOS                       (7)--)")
+    print("#---- Salir                             (8)--)")
     print("#----------------------------------------------------------------------------------------#")
     opcion = pedir_int_rango("Ingrese opcion ",0 ,13 )
     
@@ -135,9 +136,6 @@ while salir_menu == False :
                 print("#-------- PRIMERO DE CARGAR UN ALUMNO -------#")
         
         case 7 :
-            pass
-            
-        case 9:
             
             lista_legajos = [1001,1002,1003,1004,1005]
             lista_apellidos_nombres = ["Torres Lucas ","Estevez Santino ","Garrido cecilia","Auad Liliana","Fernandez Micaela"]
@@ -147,8 +145,8 @@ while salir_menu == False :
             validar_carga = True 
             
             print("Datos cargados con exito !! ")
-            
-        case 10:
+                 
+        case 8:
             
             print("Cerrando sistema")
             salir_menu = True 
