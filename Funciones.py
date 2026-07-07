@@ -1,5 +1,5 @@
 from Validaciones import *
-
+#-------------------------------------------------------------------------------------------
 def pedir_int_rango(mensaje, min , max ):
     
     '''
@@ -38,11 +38,19 @@ def pedir_int_rango(mensaje, min , max ):
          
     return retorno
 
+#-------------------------------------------------------------------------------------------
+
 def pedir_genero () :
+    '''
+        Solicita al usuario que ingrese el genero  ( F, M , X ) .
+        valida que el genero ingresado se correcto
+        si es correcto lo retorna . 
+
+    '''
     retorno = False
     flag = False
     intentos = 0 
-    while flag == False and intentos  < 3 :
+    while flag == False :
         aux_sexo = input("Ingrese Genero F/M/X : ")
         validacion_sexo = validar_genero(aux_sexo)
         if validacion_sexo == True  :
@@ -51,15 +59,12 @@ def pedir_genero () :
                        
         else : 
             print("!!!!! __ [ ERROR ] ---  Ingrese una palabra valido (SOLO LETRAS ) __ !!!!! ")
-        intentos = intentos + 1 
-        
-        if intentos == 4 :
-            print("!!!!! __ [ ERROR ] ---  Limite de intentos __ !!!!! ")
+       
     
     return retorno 
 
+#-------------------------------------------------------------------------------------------
 
- 
 def pedir_float_rango(mensaje:str ,num_min:int ,num_max:int ) -> float :
     
     '''
@@ -72,31 +77,27 @@ def pedir_float_rango(mensaje:str ,num_min:int ,num_max:int ) -> float :
         parametro : min , Indica el rango minimo solicitado 
         parametro : max , Indica el rango maximo solicitado 
 
-    '''
-    
+    '''    
     retorno = False
     flag_salida_while = False
     intentos = 0 
     
-    while flag_salida_while == False and intentos  <= 3 :
+    while flag_salida_while == False :
         aux_caracter = input(mensaje)
         aux_flag = validar_flotante(aux_caracter)
-        intentos = intentos + 1 
+         
         if aux_flag == True :
                 aux_retorno = float(aux_caracter) 
-                
+        
                 if aux_retorno >= num_min and aux_retorno <= num_max :
                     retorno = float(aux_caracter) 
-                    break
-                
-                
+                    break        
         else : 
             print("!!!!! __  [ ERROR ] ---  Ingrese un nunero valido __ !!!!! 3/ ")
-        
-        
-        if intentos == 4 :
-            print("!!!!! __ [ ERROR ] ---  Limite de intentos __ !!!!! ")
+
     return retorno
+
+#-------------------------------------------------------------------------------------------
 
 def pedir_str(mensaje):
     '''
@@ -116,23 +117,32 @@ def pedir_str(mensaje):
         
         if flag == True :
                 return aux_caracter 
-                
-                
+               
         else : 
             print("!!!!! __ [ ERROR ] ---  Ingrese una palabra valida (SOLO LETRAS ) __ !!!!! ")
-        
-
-            
+           
     return retorno
+
+#-------------------------------------------------------------------------------------------
 
 def mostrar_alumno(legajo:int, 
                    apellidos_nombres : str, 
                    genero:str, 
                    nota_1:float, 
                    nota_2:float) :
+
+'''
+     Recibe los datos de un alumno y lo muestra de forma ordenado 
+
+     parametro : legajo : int, contiene el numero de legajo del alumno 
+     parametro : apellidos_nombres : str, contiene el apellido y nombre del alumno
+     parametro : genero:str,  contiene el genero del alumno 
+     parametro : nota_1:float, contiene la nota del primer parcial de alumno 
+     parametro : nota_2:float, contiene la nota del segundo parcial de la alumno 
+'''
     print(f"{legajo:<10}{apellidos_nombres:<25}{genero:<10}{nota_1:<10}{nota_2:<10}")
 
-
+#-------------------------------------------------------------------------------------------
 
 def mostar_alumnos(lista_legajos:list, 
                    lista_apellidos_nombres : list, 
@@ -140,7 +150,16 @@ def mostar_alumnos(lista_legajos:list,
                    lista_notas_1:list, 
                    lista_notas_2:list,
                    ) :
-    
+    '''
+        recorre la lista de legajos asociados a cada alumno 
+        cada vez que recorre llama a la funcion encargada de mostar un alumno y le pasa el valor 
+
+        parametro : lista_legajos : list , contiene una lista de legajos del alumno
+        parametro : lista_apellidos_nombres : list , contiene una lista con appelidos y nombres del alumno 
+        parametro : lista_generos : list , contiene una lista de generos de cada alumno
+        parametro : lista_notas_1 : list , contiene una lista de notas del primer parcial 
+        parametro : lista_notas_2 : list , contiene una lista de notas del segundo parcial 
+    '''
     for i in range(len(lista_legajos)) :
         mostrar_alumno(lista_legajos[i], 
                    lista_apellidos_nombres [i], 
@@ -148,7 +167,9 @@ def mostar_alumnos(lista_legajos:list,
                    lista_notas_1[i], 
                    lista_notas_2[i],
                    )
-        
+
+#-------------------------------------------------------------------------------------------
+
 def mostrar_alumno_con_promedio(legajo:int, 
                    apellidos_nombres : str, 
                    genero:str, 
@@ -157,7 +178,7 @@ def mostrar_alumno_con_promedio(legajo:int,
                    promedio:float) :
     print(f"{legajo:<10}{apellidos_nombres:<25}{genero:<10}{nota_1:<10}{nota_2:<10}{promedio:<10}")
 
-
+#-------------------------------------------------------------------------------------------
 
 def mostrar_alumnos_con_promedios(lista_legajos:list, 
                    lista_apellidos_nombres : list, 
@@ -174,13 +195,16 @@ def mostrar_alumnos_con_promedios(lista_legajos:list,
                    lista_notas_2[i],
                    lista_promedios[i]
                    )
-        
+
+#-------------------------------------------------------------------------------------------
         
 def agregar_dato(lista:list, dato:str):
 
     lista = lista + [dato]
 
     return lista
+
+#-------------------------------------------------------------------------------------------
 
 def calcular_promedios (lista_notas_1,lista_notas_2) :
     
@@ -193,6 +217,8 @@ def calcular_promedios (lista_notas_1,lista_notas_2) :
     
     return aux_lista_promedios
 
+#-------------------------------------------------------------------------------------------
+
 def calcular_mayor_promedio(lista_promedios : list ) : 
     
     aux_mayor = 0 
@@ -203,6 +229,7 @@ def calcular_mayor_promedio(lista_promedios : list ) :
             
     return aux_mayor
 
+#-------------------------------------------------------------------------------------------
 
 def mostrar_mayor_promedio ( promedio_max : int,
                         lista_legajos : list,
@@ -221,9 +248,15 @@ def mostrar_mayor_promedio ( promedio_max : int,
                             lista_notas_segundo_parcial[i],
                             lista_promedios[i]) 
     
+#-------------------------------------------------------------------------------------------    
     
-    
-def ordenar_por_promedio(lista_promedios,lista_legajos,lista_apellidos_nombres,lista_generos,lista_notas_primer_parcial,lista_notas_segundo_parcial,criterio : str = "ASC" ):
+def ordenar_por_promedio(lista_promedios,
+                         lista_legajos,
+                         lista_apellidos_nombres,
+                         lista_generos,
+                         lista_notas_primer_parcial,
+                         lista_notas_segundo_parcial,
+                         criterio : str = "ASC" ):
 
     
     for i in range(len(lista_promedios) - 1):
@@ -254,8 +287,7 @@ def ordenar_por_promedio(lista_promedios,lista_legajos,lista_apellidos_nombres,l
                 lista_notas_segundo_parcial[i] = lista_notas_segundo_parcial[j]
                 lista_notas_segundo_parcial[j] = aux           
  
-
-
+#-------------------------------------------------------------------------------------------
 
 def ordenar_lista(lista:list, criterio:str = "ASC") -> list:
     
@@ -268,6 +300,7 @@ def ordenar_lista(lista:list, criterio:str = "ASC") -> list:
                     lista[j] = aux
     return lista
 
+#-------------------------------------------------------------------------------------------
 
 def pedir_legajo (lista_legajos : list ) : 
     
@@ -287,10 +320,8 @@ def pedir_legajo (lista_legajos : list ) :
      
     return retorno 
     
-    
-    
-    
-    
+#-------------------------------------------------------------------------------------------
+      
 def validar_legajo (lista_legajos : list , legajo_a_buscar : int) : 
     
     for legajo in lista_legajos : 
@@ -299,7 +330,8 @@ def validar_legajo (lista_legajos : list , legajo_a_buscar : int) :
     
     return False
             
-            
+#-------------------------------------------------------------------------------------------
+
 def buscar_y_mostrar(   lista_legajos : list,
                         lista_apellidos_nombres : list,
                         lista_generos : list,
